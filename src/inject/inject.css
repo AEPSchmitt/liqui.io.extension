@@ -1,0 +1,29 @@
+/**
+ * Place your custom CSS styles here.
+ **/
+#favourites{
+  cursor:pointer;
+}
+
+#favourites_dropdown{
+  z-index: 900;
+  list-style: none;
+  position: absolute;
+  background: white;
+  padding: 12px;
+  width: 239px;
+  box-shadow: 2px 3px 8px #888888;
+}
+
+#favourites_dropdown > li {
+   line-height: 28px;
+   z-index:1000;
+}
+
+#favourites_dropdown > li:hover {
+   color:#589cff;
+}
+
+#favourite_input{
+  z-index: 9999;
+}
