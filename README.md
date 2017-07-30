@@ -1,6 +1,6 @@
 # liqui.io.extension
 
-1. Download to empty folder
+1. Download zip and unpack to empty folder
 2. Open Chrome
 3. Go to page "chrome://extensions/"
 4. Make sure "Developer mode" is ticked
