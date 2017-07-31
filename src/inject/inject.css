@@ -28,6 +28,9 @@
   z-index: 9999;
 }
 
+.close{
+  padding-top: 10px;
+}
 .close:hover{
   color:black !important;
 }

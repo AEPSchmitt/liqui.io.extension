@@ -86,7 +86,7 @@ chrome.extension.sendMessage({}, function(response) {
 				console.log(this);
 				jQuery(this).contents().find('#content > header').hide();
 				jQuery(this).show();
-				jQuery(this).css({'height' : '410px'});
+				jQuery(this).css({'height' : '420px'});
 				//$('.top-statistics > .container').append(save);
 				cleanIframe(this);
 			});
@@ -102,6 +102,7 @@ chrome.extension.sendMessage({}, function(response) {
 		$('#favourites').click(function(evt){
 			$('#favourites_dropdown').toggle();
 		});
+		$('#favourites').prop('tooltipText', 'CTRL + click to add as graph');
 		$(".market-name").after($('<button id="add_favourite">Add to Favourites</button>'))
 		$("#add_favourite").click( function(evt){
 			var currency = $(".market-name")[0].innerHTML.replace("/BTC", "");
