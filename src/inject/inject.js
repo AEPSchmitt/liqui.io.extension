@@ -5,15 +5,6 @@ chrome.extension.sendMessage({}, function(response) {
 		// ----------------------------------------------------------
 		// This part of the script triggers when page is done loading
 	  $('.lamp').before($('<li id="favourites"><a>Favourites</a><ul id="favourites_dropdown" style="display:none;"></ul></li>'));
-		$('.lamp').before($('<li id="test"><a>Test</a>'));
-		$('#test').click(function(evt){
-			//$('iframe')[0].style.width = '50%';
-			//$('#tv_chart_container').append('<div id="yep" style="width:50%"></div>');
-
-			//console.log(sub_frame)
-			//$('#emb_frame').children().not('iframe');
-
-		})
 		//Load favourites from localstorage
 		var favourites = [];
 		var ctrlActive = false;
