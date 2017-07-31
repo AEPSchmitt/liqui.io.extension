@@ -75,9 +75,12 @@ chrome.extension.sendMessage({}, function(response) {
 			$('#'+id).load(function() {
 				console.log("Iframe loaded");
 				console.log(this);
-				jQuery(this).contents().find('#content > header').hide();
-				jQuery(this).show();
-				jQuery(this).css({'height' : '420px'});
+				$(this).contents().find('#content > header').remove();
+				$(this).show();
+				$(this).css({'height' : '440px'});
+				$(this).contents().find('.separator').css({'padding-top':'16px'})/*.click(function(e){
+					jQuery(this).siblings().toggle();
+				});*/
 				//$('.top-statistics > .container').append(save);
 				cleanIframe(this);
 			});
