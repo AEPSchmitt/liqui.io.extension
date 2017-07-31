@@ -27,3 +27,11 @@
 #favourite_input{
   z-index: 9999;
 }
+
+.close:hover{
+  color:black !important;
+}
+
+.ctrl:hover{
+  color:red !important;
+}
