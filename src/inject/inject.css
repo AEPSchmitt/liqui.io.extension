@@ -8,6 +8,12 @@
   cursor:pointer;
 }
 
+#add_favourite{
+  float: right;
+  margin-right: 15px;
+  margin-top: -45px;
+}
+
 #favourites_dropdown{
   z-index: 900;
   list-style: none;
@@ -40,4 +46,60 @@
 
 .ctrl:hover{
   color:red !important;
+}
+
+#content{
+  padding-bottom:0px !important;
+}
+
+#add_favourite {
+  position: absolute;
+  transform: scale(0.35);
+  /* margin-top: -74px; */
+  top: 7px;
+  right: -59px;
+  /* margin-right: -75px; */
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 250px;
+  height: 70px;
+  cursor: pointer;
+  margin: 0 auto;
+  border: 2px solid #589cff;
+  -webkit-border-radius: 40px;
+  border-radius: 40px;
+  font: normal 37px/70px "Advent Pro", Helvetica, sans-serif;
+  color: #589cff;
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  letter-spacing: 1px;
+  background: rgba(0,0,0,0);
+  -webkit-transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+  -moz-transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+  -o-transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+  transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+}
+
+#add_favourite:hover {
+  color: rgba(255,255,255,1);
+  background: #589cff;
+}
+
+#add_favourite:active {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+#market_toggle{
+  display:inline-block;
+  cursor:pointer;
+  user-select: none;
+  width: 23px;
+}
+#market_toggle:hover{
+  color:blue;
 }

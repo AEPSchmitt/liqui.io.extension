@@ -6,6 +6,7 @@ chrome.extension.sendMessage({}, function(response) {
 		// This part of the script triggers when page is done loading
 	  $('.lamp').before($('<li id="favourites"><a class="custom_btn">Favourites</a><ul id="favourites_dropdown" style="display:none;"></ul></li>'));
 		$('#favourites').before($('<li id="alert_button"><a class="custom_btn">Set Alert</a></li>'));
+		$('#alert_button').click(function(e){toggleMarketList()});
 		//Load favourites from localstorage
 		var favourites = [];
 		var ctrlActive = false;
@@ -28,7 +29,19 @@ chrome.extension.sendMessage({}, function(response) {
 				loadFavouritesMenu();
 			});
 		}
-
+		var marketListOpened = false;
+		function toggleMarketList(){
+			//$('.price-table').prepend('<div class="col-xs-12"></div>');
+			if(marketListOpened){
+				$('.markets-table > tbody').css({'height':'246px'});
+				$('#market_toggle').text('+');
+				marketListOpened = false;
+			} else {
+					$('.markets-table > tbody').css({'height':'1200px'});
+					$('#market_toggle').text('-');
+					marketListOpened = true;
+			}
+		}
 		function loadFavouritesMenu(){
 			/*var fav_menu = $('#favourites');
 			while (fav_menu.firstChild) {
@@ -75,8 +88,15 @@ chrome.extension.sendMessage({}, function(response) {
 			$('#'+id).attr('src', src);
 			$('#'+id).load(function() {
 				console.log("Iframe loaded");
-				console.log(this);
 				$(this).contents().find('#content > header').remove();
+				var offers = $(this).contents().find('.offer-block').detach();
+				offers.contents().find('.price-table').css('visibility','hidden');
+				$(this).contents().find('#content > div.gray.trade').remove();
+				$(this).contents().find('#content > div.gray.main-orders').remove();
+				$(this).contents().find('.separator').remove();
+				$(this).contents().find('#content').css('padding-bottom', '0px')
+				$(this).contents().find('body > footer').remove();
+				$('.offer-block').append(offers);
 				$(this).show();
 				$(this).css({'height' : '440px'});
 				$(this).contents().find('.separator').css({'padding-top':'16px'})/*.click(function(e){
@@ -97,8 +117,13 @@ chrome.extension.sendMessage({}, function(response) {
 		$('#favourites').click(function(evt){
 			$('#favourites_dropdown').toggle();
 		});
+		$('.price-table').contents().find('h3').prepend('<div id="market_toggle" style="padding:5px;">+</div>');
+		$('#market_toggle').click(function(e){
+			console.log("Clicked some shit")
+			toggleMarketList();
+		})
 		$('#favourites').prop('tooltipText', 'CTRL + click to add as graph');
-		$(".market-name").after($('<button id="add_favourite">Add to Favourites</button>'))
+		$(".market-name").after($('<div id="add_favourite">Favourite</div>'))
 		$("#add_favourite").click( function(evt){
 			var currency = $(".market-name")[0].innerHTML.replace("/BTC", "");
 			addFavourite(currency);
