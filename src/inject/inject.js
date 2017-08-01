@@ -118,7 +118,6 @@ chrome.extension.sendMessage({}, function(response) {
 			$('#favourites_dropdown').toggle();
 		});
 		$('.price-table').contents().find('h3').prepend('<div id="market_toggle" style="padding:5px;">+</div>');
-		$('.price-table').contents().find('h3').append('<input id="filter_field" type="text" placeholder="Filter Search"></input>');
 		$('#market_toggle').click(function(e){
 			console.log("Clicked some shit")
 			toggleMarketList();
@@ -136,16 +135,26 @@ chrome.extension.sendMessage({}, function(response) {
 			}).show();
 			console.log(e.target.value);
 		});*/
-		var $rows = $('.markets-table tr');
-		console.log($rows);
-		$('#filter_field').keyup(function() {
-		    var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+		let $rows;
+		setTimeout(function(){
+			console.log("reloaded rows");
+			$rows = $('.markets-table > tbody > tr');
+		}, 100)
+		$(document).ready(function(){
+			console.log("Document Ready")
+			$('.price-table').contents().find('h3').append('<input id="filter_field" type="text" placeholder="Filter Search"></input>');
+			$rows = $('.markets-table > tbody > tr');
+			console.log($rows);
+			$('#filter_field').keyup(function() {
+			    var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
 
-		    $rows.show().filter(function() {
-		        var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
-		        return !~text.indexOf(val);
-		    }).hide();
+			    $rows.show().filter(function() {
+			        var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+			        return !~text.indexOf(val);
+			    }).hide();
+			});
 		});
+
 		$('#favourites').prop('tooltipText', 'CTRL + click to add as graph');
 		$(".market-name").after($('<div id="add_favourite">Favourite</div>'))
 		$("#add_favourite").click( function(evt){
