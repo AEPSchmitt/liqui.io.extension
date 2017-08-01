@@ -1,7 +1,10 @@
 /**
  * Place your custom CSS styles here.
  **/
-#favourites{
+.custom_btn{
+  cursor:pointer;
+}
+.currency_code{
   cursor:pointer;
 }
 

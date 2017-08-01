@@ -4,7 +4,8 @@ chrome.extension.sendMessage({}, function(response) {
 		clearInterval(readyStateCheckInterval);
 		// ----------------------------------------------------------
 		// This part of the script triggers when page is done loading
-	  $('.lamp').before($('<li id="favourites"><a>Favourites</a><ul id="favourites_dropdown" style="display:none;"></ul></li>'));
+	  $('.lamp').before($('<li id="favourites"><a class="custom_btn">Favourites</a><ul id="favourites_dropdown" style="display:none;"></ul></li>'));
+		$('#favourites').before($('<li id="alert_button"><a class="custom_btn">Set Alert</a></li>'));
 		//Load favourites from localstorage
 		var favourites = [];
 		var ctrlActive = false;

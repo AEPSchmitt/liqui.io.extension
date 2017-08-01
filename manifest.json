@@ -4,7 +4,10 @@
   "manifest_version": 2,
   "description": "This extension was created by A.E.P. Schmitt",
   "icons": {
-
+    "16": "icons/lie_16.png",
+    "32": "icons/lie_32.png",
+    "48": "icons/lie_48.png",
+    "128": "icons/lie_128.png"
   },
   "default_locale": "en",
   "background": {
